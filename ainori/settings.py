@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'myauth.apps.MyauthConfig',
     'social_django',
     'ainori',
+    'nori.apps.NoriConfig',
 ]
 
 MIDDLEWARE = [

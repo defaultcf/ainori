@@ -1,0 +1,13 @@
+{% if latest_nori_list %}
+  <ul>
+    {% for nori in latest_nori_list %}
+      <li>
+        <a href="{% url 'detail' nori.id %}">
+          {{ nori.comment }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>相乗りのデータがありません。</p>
+{% endif %}
