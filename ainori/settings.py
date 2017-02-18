@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myauth.apps.MyauthConfig',
     'social_django',
+    'ainori',
 ]
 
 MIDDLEWARE = [
