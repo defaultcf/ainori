@@ -1,2 +1,8 @@
 {{ nori.id }}
 {{ nori.comment }}
+
+<form action="{% url 'nori:send' nori.id %}" method="post">
+  {% csrf_token %}
+  <textarea name="comment"></textarea>
+  <input type="submit" value="送信">
+</form>

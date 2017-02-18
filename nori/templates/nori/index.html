@@ -2,7 +2,7 @@
   <ul>
     {% for nori in latest_nori_list %}
       <li>
-        <a href="{% url 'detail' nori.id %}">
+        <a href="{% url 'nori:detail' nori.id %}">
           {{ nori.comment }}
         </a>
       </li>
