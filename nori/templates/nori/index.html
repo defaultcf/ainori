@@ -5,7 +5,7 @@
     {% for nori in latest_nori_list %}
       <li>
         <a href="{% url 'nori:detail' nori.id %}">
-          {{ nori.comment }}
+          {{ nori.date }} - {{ nori.comment }}
         </a>
       </li>
     {% endfor %}

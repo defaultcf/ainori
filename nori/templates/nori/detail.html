@@ -6,3 +6,13 @@
   <textarea name="comment"></textarea>
   <input type="submit" value="送信">
 </form>
+
+{% if latest_nori_comment %}
+  <ul>
+    {% for comment in latest_nori_comment %}
+      <li>{{ comment.comment }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>まだコメントがありません...</p>
+{% endif %}
