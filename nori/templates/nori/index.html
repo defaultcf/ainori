@@ -1,15 +1,37 @@
-<a href="{% url 'nori:create' %}">新規作成</a>
-
-{% if latest_nori_list %}
-  <ul>
-    {% for nori in latest_nori_list %}
-      <li>
-        <a href="{% url 'nori:detail' nori.id %}">
-          {{ nori.date }} - {{ nori.comment }}
-        </a>
-      </li>
-    {% endfor %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Neo-NoMad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="/">トップ</a></li>
+    <li role="presentation"><a href="#">二拠点登録</a></li>
+    <li role="presentation" class="active"><a href="/nori">経路一覧</a></li>
+    <li role="presentation"><a href="/nori/create">登録フォーム</a></li>
+    <li role="presentation"><a href="#">メッセージ</a></li>
   </ul>
-{% else %}
-  <p>相乗りのデータがありません。</p>
-{% endif %}
+
+  <a href="{% url 'nori:create' %}">新規作成</a>
+
+  {% if latest_nori_list %}
+    <ul>
+      {% for nori in latest_nori_list %}
+        <li>
+          <a href="{% url 'nori:detail' nori.id %}">
+            {{ nori.date }} - {{ nori.comment }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>相乗りのデータがありません。</p>
+  {% endif %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

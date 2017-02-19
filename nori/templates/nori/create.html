@@ -1,8 +1,31 @@
-<form action="{% url 'nori:created' %}" method="post">
-  {% csrf_token %}
-  <input type="date" name="date">
-  <input type="text" name="departure" placeholder="出発地">
-  <input type="text" name="arrival" placeholder="到着地">
-  <textarea name="comment"></textarea>
-  <input type="submit" value="送信">
-</form>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Neo-NoMad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="/">トップ</a></li>
+    <li role="presentation"><a href="#">二拠点登録</a></li>
+    <li role="presentation"><a href="/nori">経路一覧</a></li>
+    <li role="presentation" class="active"><a href="/nori/create">登録フォーム</a></li>
+    <li role="presentation"><a href="#">メッセージ</a></li>
+  </ul>
+
+  <form action="{% url 'nori:created' %}" method="post">
+    {% csrf_token %}
+    <input type="date" name="date">
+    <input type="text" name="departure" placeholder="出発地">
+    <input type="text" name="arrival" placeholder="到着地">
+    <textarea name="comment"></textarea>    
+    <input type="submit" value="送信">
+  </form>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
