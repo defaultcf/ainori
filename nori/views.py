@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, Http404
 
-from .models import Nori
+from .models import Nori, Kyoten
 
 # Create your views here.
 def index(request):
@@ -13,6 +13,23 @@ def index(request):
 
 def create(request):
     return render(request, 'nori/create.html')
+
+def created(request):
+    #msg = request.POST['departure'] + "から" + request.POST['arrival'] + "へ"
+    #return HttpResponse(msg)
+
+    departure = get_object_or_404(Kyoten, area=request.POST['departure'])
+    arrival = get_object_or_404(Kyoten, area=request.POST['arrival'])
+
+    nori = Nori(
+        user=request.user,
+        date=request.POST['date'],
+        departure=departure,
+        arrival=arrival,
+        comment=request.POST['comment'],
+    )
+    nori.save()
+    return HttpResponse(request.user.id)
 
 def detail(request, nori_id):
     try:

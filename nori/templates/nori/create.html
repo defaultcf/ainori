@@ -1,1 +1,8 @@
-作るぞい！
+<form action="{% url 'nori:created' %}" method="post">
+  {% csrf_token %}
+  <input type="date" name="date">
+  <input type="text" name="departure" placeholder="出発地">
+  <input type="text" name="arrival" placeholder="到着地">
+  <textarea name="comment"></textarea>
+  <input type="submit" value="送信">
+</form>
